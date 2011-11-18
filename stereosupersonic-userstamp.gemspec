@@ -30,7 +30,6 @@ Gem::Specification.new do |s|
     "stereosupersonic-userstamp.gemspec",
     "rdoc/classes/Ddb/Controller.html",
     "rdoc/classes/Ddb/Controller/Userstamp/InstanceMethods.html",
-    "rdoc/classes/Ddb/Userstamp.html",
     "rdoc/classes/Ddb/Userstamp/MigrationHelper.html",
     "rdoc/classes/Ddb/Userstamp/MigrationHelper/InstanceMethods.html",
     "rdoc/classes/Ddb/Userstamp/Stampable.html",
