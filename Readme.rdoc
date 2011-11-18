@@ -8,7 +8,7 @@ This is a fork of the magiclabs fork [https://github.com/magiclabs/userstamp] of
 
 You can set the Stamper-Class in an initialzier 
 
-  Ddb::Userstamp.stamper_klass = :person
+  Ddb::Userstamp.stamper_klass = Person
 
 
 To use this fork add the following to your application gemfile:

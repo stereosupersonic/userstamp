@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
     "rdoc/classes/Ddb/Userstamp/Stamper.html",
     "rdoc/classes/Ddb/Userstamp/Stamper/ClassMethods.html",
     "rdoc/classes/Ddb/Userstamp/Stamper/InstanceMethods.html",
-    "rdoc/classes/Userstamp.html",
     "rdoc/created.rid",
     "rdoc/files/CHANGELOG.html",
     "rdoc/files/LICENSE.html",
