@@ -27,9 +27,8 @@ Gem::Specification.new do |s|
     "lib/stampable.rb",
     "lib/stamper.rb",
     "lib/userstamp.rb",
-    "magiclabs-userstamp.gemspec",
+    "stereosupersonic-userstamp.gemspec",
     "rdoc/classes/Ddb/Controller.html",
-    "rdoc/classes/Ddb/Controller/Userstamp.html",
     "rdoc/classes/Ddb/Controller/Userstamp/InstanceMethods.html",
     "rdoc/classes/Ddb/Userstamp.html",
     "rdoc/classes/Ddb/Userstamp/MigrationHelper.html",
@@ -43,7 +42,6 @@ Gem::Specification.new do |s|
     "rdoc/created.rid",
     "rdoc/files/CHANGELOG.html",
     "rdoc/files/LICENSE.html",
-    "rdoc/files/Readme_rdoc.html",
     "rdoc/files/lib/migration_helper_rb.html",
     "rdoc/files/lib/stampable_rb.html",
     "rdoc/files/lib/stamper_rb.html",
@@ -57,16 +55,13 @@ Gem::Specification.new do |s|
     "test/controllers/posts_controller.rb",
     "test/controllers/users_controller.rb",
     "test/controllers/userstamp_controller.rb",
-    "test/helper.rb",
     "test/models/comment.rb",
-    "test/models/foo.rb",
     "test/models/person.rb",
     "test/models/post.rb",
     "test/models/user.rb",
     "test/schema.rb",
     "test/stamping_test.rb",
-    "test/userstamp_controller_test.rb",
-    "test/userstamp_test.rb"
+    "test/userstamp_controller_test.rb"
   ]
   s.homepage = "https://github.com/stereosupersonic/userstamp"
   s.require_paths = ["lib"]
