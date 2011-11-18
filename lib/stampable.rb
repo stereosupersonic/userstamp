@@ -87,8 +87,8 @@ module Ddb #:nodoc:
             belongs_to :updater, :class_name => self.stamper_class_name.to_s.singularize.camelize,
                                  :foreign_key => self.updater_attribute
                                  
-            before_save     :set_updater_attribute
-            before_create   :set_creator_attribute
+            before_validation :set_updater_attribute
+            before_validation :set_creator_attribute, :on => :create
                                  
             if defined?(Caboose::Acts::Paranoid)
               belongs_to :deleter, :class_name => self.stamper_class_name.to_s.singularize.camelize,
@@ -109,11 +109,12 @@ module Ddb #:nodoc:
           original_value = self.record_userstamp
           self.record_userstamp = false
           yield
+        ensure
           self.record_userstamp = original_value
         end
 
         def stamper_class #:nodoc:
-          stamper_class_name.to_s.capitalize.constantize rescue nil
+          stamper_class_name.to_s.camelize.constantize rescue nil
         end
       end
 

@@ -1,3 +1,11 @@
+require 'stamper'
+require 'stampable'
+require 'migration_helper'
+
+module Userstamp
+  VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
+end
+
 module Ddb
   module Controller
     # The Userstamp module, when included into a controller, adds a before filter
