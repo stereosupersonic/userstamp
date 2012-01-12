@@ -13,7 +13,7 @@ You can set the Stamper-Class in an initialzier
 
 To use this fork add the following to your application gemfile:
 
-  gem "stereosupersonic-userstamp", :git => "https://github.com/stereosupersonic/userstamp"
+  gem "stereosupersonic-userstamp",  :require => 'userstamp', :git => 'https://github.com/stereosupersonic/userstamp'
 	
 
 == Overview
