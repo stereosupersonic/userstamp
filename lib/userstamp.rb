@@ -2,6 +2,10 @@ require 'stamper'
 require 'stampable'
 require 'migration_helper'
 
+require "version"
+require "railtie"  if defined?(Rails)
+
+
 module Userstamp
   VERSION = File.read( File.join(File.dirname(__FILE__),'..','VERSION') ).strip
 end

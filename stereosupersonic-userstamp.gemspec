@@ -3,13 +3,17 @@
 # Instead, edit Jeweler::Tasks in Rakefile, and run 'rake gemspec'
 # -*- encoding: utf-8 -*-
 
+$:.push File.expand_path("../lib", __FILE__)
+require "version"
+
+
+
 Gem::Specification.new do |s|
   s.name = "stereosupersonic-userstamp"
-  s.version = "2.0.3"
+  s.version = Ddb::Userstamp::VERSION
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Deimel"]
-  s.date = "2011-11-18"
   s.email = "michael@deimel.de"
   s.extra_rdoc_files = [
     "LICENSE"
@@ -21,7 +25,6 @@ Gem::Specification.new do |s|
     "LICENSE",
     "Rakefile",
     "Readme.rdoc",
-    "VERSION",
     "init.rb",
     "lib/migration_helper.rb",
     "lib/stampable.rb",
