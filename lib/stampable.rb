@@ -90,7 +90,7 @@ module Ddb #:nodoc:
             before_validation :set_updater_attribute
             before_validation :set_creator_attribute, :on => :create
                                  
-            if defined?(Caboose::Acts::Paranoid)
+            if defined?(Caboose::Acts::Paranoid) or defined?(Paranoia)
               belongs_to :deleter, :class_name => self.stamper_class_name.to_s.singularize.camelize,
                                    :foreign_key => self.deleter_attribute
               before_destroy  :set_deleter_attribute
@@ -142,7 +142,7 @@ module Ddb #:nodoc:
             return unless self.record_userstamp
             if respond_to?(self.deleter_attribute.to_sym) && has_stamper?
               self.send("#{self.deleter_attribute}=".to_sym, self.class.stamper_class.stamper)
-              save
+              save unless defined?(Paranoia) # don't save now with Paranoia
             end
           end
         #end private
