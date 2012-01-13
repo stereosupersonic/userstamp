@@ -1,3 +1,5 @@
+3.0.1 (1-13-2012)
+    * [Michael Deimel] - Add possibility to change the belongs_to method in the stampable model
 3.0 (1-12-2012)
     * [Michael Deimel] - Rails 3 support to use 'Userstamp' as a Gem
     

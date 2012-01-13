@@ -48,6 +48,10 @@ module Ddb #:nodoc:
           # Defaults to :deleter_id when compatibility mode is off
           # Defaults to :deleted_by when compatibility mode is on
           class_attribute  :deleter_attribute
+          
+          #you can change your link method
+          # default 'belongs_to' 
+          class_attribute  :link_method
 
           self.stampable
         end
@@ -70,6 +74,7 @@ module Ddb #:nodoc:
         def stampable(options = {})
           defaults  = {
                         :stamper_class_name => :user,
+                        :link_method => :belongs_to,
                         :creator_attribute  => Ddb::Userstamp.compatibility_mode ? :created_by : :creator_id,
                         :updater_attribute  => Ddb::Userstamp.compatibility_mode ? :updated_by : :updater_id,
                         :deleter_attribute  => Ddb::Userstamp.compatibility_mode ? :deleted_by : :deleter_id
@@ -79,13 +84,13 @@ module Ddb #:nodoc:
           self.creator_attribute  = defaults[:creator_attribute].to_sym
           self.updater_attribute  = defaults[:updater_attribute].to_sym
           self.deleter_attribute  = defaults[:deleter_attribute].to_sym
-
-          class_eval do
-            belongs_to :creator, :class_name => self.stamper_class_name.to_s.singularize.camelize,
-                                 :foreign_key => self.creator_attribute
+          self.link_method = defaults[:link_method].to_sym
+          class_eval do 
+             send(self.link_method, :creator, :class_name => self.stamper_class_name.to_s.singularize.camelize,
+                                 :foreign_key => self.creator_attribute)
                                  
-            belongs_to :updater, :class_name => self.stamper_class_name.to_s.singularize.camelize,
-                                 :foreign_key => self.updater_attribute
+             send(self.link_method, :updater, :class_name => self.stamper_class_name.to_s.singularize.camelize,
+                                 :foreign_key => self.updater_attribute)
                                  
             before_validation :set_updater_attribute
             before_validation :set_creator_attribute, :on => :create
