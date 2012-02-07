@@ -23,7 +23,6 @@ Gem::Specification.new do |s|
     "LICENSE",
     "Rakefile",
     "Readme.rdoc",
-    "init.rb",
     "lib/migration_helper.rb",
     "lib/stampable.rb",
     "lib/stamper.rb",
