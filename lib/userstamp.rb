@@ -1,4 +1,4 @@
-require "railtie" if defined?(Rails)
+require "railtie" if defined?(Rails) and Rails::VERSION::MAJOR > 2  
 
 require 'stamper'
 require 'stampable'

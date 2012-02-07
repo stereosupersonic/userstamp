@@ -42,4 +42,4 @@ module Ddb
   end
 end
 
-ActionController::Base.send(:include, Ddb::Controller) if defined?(ActionController)
+ActionController::Base.send(:include, Ddb::Controller) if defined?(Rails) and Rails::VERSION::MAJOR < 3

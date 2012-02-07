@@ -40,4 +40,4 @@ module Ddb #:nodoc:
   end
 end
 
-ActiveRecord::Base.send(:include, Ddb::Userstamp::Stamper) if defined?(ActiveRecord)
+ActiveRecord::Base.send(:include, Ddb::Userstamp::Stamper) if defined?(Rails) and Rails::VERSION::MAJOR < 3

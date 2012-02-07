@@ -16,4 +16,4 @@ module Ddb
   end
 end
 
-ActiveRecord::ConnectionAdapters::TableDefinition.send(:include, Ddb::Userstamp::MigrationHelper)
+ActiveRecord::ConnectionAdapters::TableDefinition.send(:include, Ddb::Userstamp::MigrationHelper) if defined?(Rails) and Rails::VERSION::MAJOR < 3
