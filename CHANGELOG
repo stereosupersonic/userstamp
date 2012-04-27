@@ -1,3 +1,5 @@
+3.0.3 (4-27-2012)
+    * [Michael Deimel] - Rails 2 Problems with before_validation 
 3.0.1 (1-13-2012)
     * [Michael Deimel] - Add possibility to change the belongs_to method in the stampable model
 3.0 (1-12-2012)

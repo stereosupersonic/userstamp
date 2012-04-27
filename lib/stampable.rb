@@ -92,9 +92,14 @@ module Ddb #:nodoc:
              send(self.link_method, :updater, :class_name => self.stamper_class_name.to_s.singularize.camelize,
                                  :foreign_key => self.updater_attribute)
                                  
-            before_validation :set_updater_attribute
-            before_validation :set_creator_attribute, :on => :create
-                                 
+            before_validation :set_updater_attribute  
+              
+            if defined?(Rails) and Rails::VERSION::MAJOR < 3   
+              before_validation_on_create :set_creator_attribute     
+            else
+              before_validation :set_creator_attribute, :on => :create
+            end      
+                            
             if defined?(Caboose::Acts::Paranoid) or defined?(Paranoia)
               belongs_to :deleter, :class_name => self.stamper_class_name.to_s.singularize.camelize,
                                    :foreign_key => self.deleter_attribute
