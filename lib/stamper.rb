@@ -24,6 +24,7 @@ module Ddb #:nodoc:
           end
 
           Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper"] = object_stamper
+          Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper_type"] = object.class.name
         end
 
         # Retrieves the existing stamper for the current request.
@@ -31,9 +32,14 @@ module Ddb #:nodoc:
           Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper"]
         end
 
+        def stamper_type
+          Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper_type"]
+        end
+
         # Sets the stamper back to +nil+ to prepare for the next request.
         def reset_stamper
           Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper"] = nil
+          Thread.current["#{self.to_s.downcase}_#{self.object_id}_stamper_type"] = nil
         end
       end
     end
