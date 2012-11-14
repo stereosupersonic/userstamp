@@ -85,9 +85,9 @@ module Ddb #:nodoc:
             :creator_attribute  => Ddb::Userstamp.compatibility_mode ? :created_by : :creator_id,
             :updater_attribute  => Ddb::Userstamp.compatibility_mode ? :updated_by : :updater_id,
             :deleter_attribute  => Ddb::Userstamp.compatibility_mode ? :deleted_by : :deleter_id,
-            :updater_type_attribute => Ddb::Userstamp.compatibility_mode ? :updated_type : :updater_type_attribute,
-            :creator_type_attribute => Ddb::Userstamp.compatibility_mode ? :created_type : :creator_type_attribute,
-            :deleter_type_attribute => Ddb::Userstamp.compatibility_mode ? :deleted_type : :updater_type_attribute,
+            :updater_type_attribute => Ddb::Userstamp.compatibility_mode ? :updated_type : :updater_type,
+            :creator_type_attribute => Ddb::Userstamp.compatibility_mode ? :created_type : :creator_type,
+            :deleter_type_attribute => Ddb::Userstamp.compatibility_mode ? :deleted_type : :updater_type
           }.merge(options)
 
           self.stamper_class_name = defaults[:stamper_class_name].to_sym
